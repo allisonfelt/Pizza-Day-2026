@@ -57,7 +57,9 @@
 }
 
 *{box-sizing:border-box}
+:root{--pizza:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NiIgaGVpZ2h0PSI0NiIgdmlld0JveD0iMCAwIDQ4IDQ4Ij48cGF0aCBkPSJNNCA0IEw0MiAyMCBBMjIgMjIgMCAwIDEgMjAgNDIgWiIgZmlsbD0iI0YwQzM0RiIgc3Ryb2tlPSIjN0EzRjE2IiBzdHJva2Utd2lkdGg9IjIuNiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik00MSAyMSBBMjEgMjEgMCAwIDEgMjEgNDEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Q0ODMyRiIgc3Ryb2tlLXdpZHRoPSI3IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48Y2lyY2xlIGN4PSIyNCIgY3k9IjE5IiByPSIzLjQiIGZpbGw9IiNDMDQwMkEiLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjI3IiByPSIyLjkiIGZpbGw9IiNDMDQwMkEiLz48Y2lyY2xlIGN4PSIyOCIgY3k9IjMwIiByPSIyLjkiIGZpbGw9IiNDMDQwMkEiLz48L3N2Zz4=") 4 4, auto}
 body{
+  cursor:var(--pizza);
   margin:0; background:var(--ground); color:var(--ink);
   font-family:var(--sans); font-size:17px; line-height:1.6;
   -webkit-font-smoothing:antialiased;
@@ -79,42 +81,40 @@ p{margin:0}
 }
 
 /* ---------- hero ---------- */
-header{padding:72px 0 40px}
+header{padding:48px 0 26px}
 .eyebrow{
   font-family:var(--mono); font-size:12px; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--river); margin-bottom:20px;
+  text-transform:uppercase; color:var(--river); margin-bottom:14px;
 }
 h1{
   font-family:var(--serif); font-weight:900; font-size:clamp(52px,11vw,92px);
-  line-height:.93; letter-spacing:-.02em; margin-bottom:20px;
+  line-height:.93; letter-spacing:-.02em; margin-bottom:14px;
   font-variation-settings:"opsz" 120;
 }
 h1 em{font-style:normal; color:var(--river); display:block}
 .dek{font-size:19px; color:var(--ink2); max-width:54ch}
 .ticker{
   font-family:var(--mono); font-size:13px; color:var(--ink2);
-  margin-top:28px; padding-top:20px; border-top:1px solid var(--line);
+  margin-top:20px; padding-top:16px; border-top:1px solid var(--line);
   display:flex; flex-wrap:wrap; gap:6px 18px;
 }
 .ticker b{color:var(--ink); font-weight:500}
 
-/* ---------- hero photo ---------- */
-.heroshot{display:none; margin:34px 0 0; border-radius:4px; overflow:hidden;
+/* ---------- hero photos ---------- */
+.herostrip{display:none; gap:10px; margin:24px 0 0}
+.herostrip.on{display:grid; grid-template-columns:repeat(3,1fr)}
+.herostrip figure{margin:0; border-radius:4px; overflow:hidden;
   border:1px solid var(--line); background:var(--surface2)}
-.heroshot.on{display:block}
-.heroshot img{display:block; width:100%; height:clamp(280px,46vw,460px);
-  object-fit:cover; object-position:center 42%}
-.heroshot figcaption{font-family:var(--mono); font-size:11.5px; color:var(--ink3);
-  padding:10px 13px; letter-spacing:.02em}
+.herostrip img{display:block; width:100%; aspect-ratio:3/4; object-fit:cover}
 
 /* ---------- sections ---------- */
-section{padding-top:64px}
+section{padding-top:44px}
 h2{
   font-family:var(--serif); font-weight:600; font-size:30px;
   letter-spacing:-.01em; margin-bottom:6px;
 }
 .sub{font-family:var(--mono); font-size:12.5px; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--ink3); margin-bottom:28px}
+  text-transform:uppercase; color:var(--ink3); margin-bottom:18px}
 
 /* ---------- map ---------- */
 figure{margin:0}
@@ -125,7 +125,7 @@ figure{margin:0}
 }
 .mapcard svg{display:block; width:100%; min-width:560px; height:auto}
 figcaption{font-family:var(--mono); font-size:12px; color:var(--ink3);
-  margin-top:12px; letter-spacing:.03em}
+  margin-top:9px; letter-spacing:.03em}
 
 /* ---------- day bar ---------- */
 .daybar{display:flex; height:44px; border-radius:3px; overflow:hidden;
@@ -140,13 +140,13 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--ink3);
   font-family:var(--mono); font-size:11.5px; color:var(--ink3)}
 
 /* ---------- timeline ---------- */
-ol.timeline{list-style:none; margin:36px 0 0; padding:0 0 0 34px; position:relative}
+ol.timeline{list-style:none; margin:24px 0 0; padding:0 0 0 34px; position:relative}
 ol.timeline::before{
   content:""; position:absolute; left:5px; top:8px; bottom:8px; width:2px;
   background:linear-gradient(180deg,var(--river2),var(--river));
   border-radius:2px;
 }
-ol.timeline li{position:relative; padding:0 0 26px}
+ol.timeline li{position:relative; padding:0 0 16px}
 ol.timeline li::before{
   content:""; position:absolute; left:-34px; top:7px;
   width:12px; height:12px; border-radius:50%;
@@ -164,9 +164,9 @@ li.peak .t{color:var(--pop); font-weight:500}
 li.peak .tw{font-family:var(--serif); font-weight:600; font-size:22px}
 
 /* ---------- cars ---------- */
-.cars{display:grid; gap:18px; grid-template-columns:repeat(3,1fr); margin-top:32px}
-.car{background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:20px}
-.car svg{width:100%; height:auto; display:block; margin-bottom:14px}
+.cars{display:grid; gap:14px; grid-template-columns:repeat(3,1fr); margin-top:22px}
+.car{background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:16px}
+.car svg{width:100%; height:auto; display:block; margin-bottom:10px}
 .car .from{font-family:var(--mono); font-size:11px; letter-spacing:.12em;
   text-transform:uppercase; color:var(--ink3); margin-bottom:6px}
 .car h3{font-family:var(--serif); font-size:19px; font-weight:600; margin-bottom:10px}
@@ -175,12 +175,12 @@ li.peak .tw{font-family:var(--serif); font-weight:600; font-size:22px}
   border:1px solid var(--line); border-radius:100px; color:var(--ink2)}
 .rider.drv{border-color:var(--river); color:var(--river)}
 
-/* ---------- shuttle steps ---------- */
+/* ---------- shuffle steps ---------- */
 .phase{font-family:var(--mono); font-size:11.5px; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--sun); margin:32px 0 14px;
-  padding-bottom:8px; border-bottom:1px solid var(--line)}
+  text-transform:uppercase; color:var(--sun); margin:22px 0 10px;
+  padding-bottom:6px; border-bottom:1px solid var(--line)}
 ol.steps{margin:0; padding:0; list-style:none; counter-reset:s}
-ol.steps li{position:relative; max-width:70ch; padding:9px 0 9px 46px; counter-increment:s;
+ol.steps li{position:relative; max-width:70ch; padding:6px 0 6px 46px; counter-increment:s;
   border-bottom:1px solid var(--line2); color:var(--ink2)}
 ol.steps li:last-child{border-bottom:0}
 ol.steps li::before{
@@ -191,8 +191,11 @@ ol.steps li::before{
 ol.steps li b{color:var(--ink); font-weight:600}
 
 /* ---------- gear ---------- */
-.gear{margin-top:28px; display:flex; flex-direction:column}
-.g{display:flex; align-items:baseline; gap:14px; padding:11px 0;
+.pair{display:grid; grid-template-columns:1fr 1fr; gap:0 44px; align-items:start}
+.pair section{padding-top:44px}
+
+.gear{margin-top:0; display:flex; flex-direction:column}
+.g{display:flex; align-items:baseline; gap:14px; padding:7px 0;
   border-bottom:1px solid var(--line2)}
 .g:last-child{border-bottom:0}
 .g .item{flex:1}
@@ -203,13 +206,13 @@ ol.steps li b{color:var(--ink); font-weight:600}
 .tag.part{color:var(--sun); background:color-mix(in srgb,var(--sun) 15%,transparent)}
 
 /* ---------- checklist ---------- */
-.list{margin-top:28px; display:grid; gap:2px; grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
-.chk{display:flex; align-items:center; gap:11px; padding:9px 10px;
-  border-radius:4px; cursor:pointer; user-select:none}
+.list{margin-top:0; display:grid; gap:2px; grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.chk{display:flex; align-items:center; gap:11px; padding:7px 10px;
+  border-radius:4px; cursor:var(--pizza); user-select:none}
 .chk:hover{background:var(--surface)}
 .chk input{appearance:none; width:17px; height:17px; flex:none; margin:0;
   border:1.5px solid var(--ink3); border-radius:3px; background:var(--surface);
-  cursor:pointer; position:relative; transition:.12s}
+  cursor:var(--pizza); position:relative; transition:.12s}
 .chk input:checked{background:var(--river); border-color:var(--river)}
 .chk input:checked::after{content:""; position:absolute; left:5px; top:1px;
   width:4px; height:9px; border:solid var(--ground); border-width:0 2px 2px 0;
@@ -218,25 +221,16 @@ ol.steps li b{color:var(--ink); font-weight:600}
 .chk input:checked + span{color:var(--ink3); text-decoration:line-through}
 .reset{margin-top:16px; font-family:var(--mono); font-size:12px; background:none;
   border:1px solid var(--line); color:var(--ink3); padding:6px 12px;
-  border-radius:3px; cursor:pointer}
+  border-radius:3px; cursor:var(--pizza)}
 .reset:hover{color:var(--pop); border-color:var(--pop)}
 .hint{font-family:var(--mono); font-size:11.5px; color:var(--ink3); margin-top:14px}
 
-/* ---------- photos ---------- */
-.gallery{margin-top:28px; display:grid; gap:10px;
-  grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
-.gallery figure{margin:0; background:var(--surface); border:1px solid var(--line);
-  border-radius:4px; overflow:hidden}
-.gallery img{display:block; width:100%; height:210px; object-fit:cover;
-  background:var(--surface2)}
-.gallery figcaption{font-family:var(--mono); font-size:11.5px; color:var(--ink3);
-  margin:0; padding:9px 11px; letter-spacing:.02em}
 code{font-family:var(--mono); font-size:.88em; background:var(--surface);
   border:1px solid var(--line); border-radius:3px; padding:1px 5px}
 
 /* ---------- links ---------- */
-.links{margin-top:28px; display:flex; flex-direction:column}
-.lk{display:flex; align-items:baseline; gap:16px; padding:14px 0;
+.links{margin-top:0; display:flex; flex-direction:column}
+.lk{display:flex; align-items:baseline; gap:16px; padding:10px 0;
   border-bottom:1px solid var(--line2); text-decoration:none; color:var(--ink)}
 .lk:last-child{border-bottom:0}
 .lk:hover .lktitle{color:var(--pop)}
@@ -246,12 +240,13 @@ code{font-family:var(--mono); font-size:.88em; background:var(--surface);
 .lkdesc{font-family:var(--mono); font-size:11.5px; color:var(--ink3); display:block;
   margin-top:3px; text-decoration:none; font-weight:400}
 
-footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
+footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--line);
   font-family:var(--mono); font-size:12px; color:var(--ink3);
   display:flex; flex-wrap:wrap; gap:8px 20px; justify-content:space-between}
 
 @media (max-width:860px){
   .cars{grid-template-columns:repeat(2,1fr)}
+  .pair{gap:0 28px}
 }
 @media (max-width:620px){
   body{font-size:16px}
@@ -262,6 +257,7 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
   h2{font-size:26px}
   .dek{font-size:17px}
 
+  .pair{grid-template-columns:1fr; gap:0}
   .cars{grid-template-columns:1fr; gap:14px}
   .car svg{max-width:300px; margin-inline:auto}
 
@@ -271,6 +267,11 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
   .daybar{height:38px}
 
   .swipe{color:var(--pop)}
+
+  .herostrip.on{display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain;
+    margin-inline:-18px; padding-inline:18px}
+  .herostrip figure{flex:0 0 76%; scroll-snap-align:center}
 
   .list{grid-template-columns:1fr}
   .chk{padding:11px 10px}          /* bigger tap target */
@@ -310,22 +311,19 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
 <header>
   <div class="eyebrow">Sunday · August 30 · Sonoma County</div>
   <h1>Pizza Day<em>2026</em></h1>
-  <p class="dek">Steelhead Beach to Sunset Beach on the Russian River. Roughly four miles of slow water, four or five hours of it, and one very large inflatable pizza.</p>
+  <p class="dek">Four miles of river, five hours of doing absolutely nothing, and one inflatable pizza roughly the size of a studio apartment.</p>
   <div class="ticker">
     <span><b>2</b> cars</span>
     <span><b>8</b> pizza slices</span>
     <span><b>1</b> unicorn floaty</span>
     <span><b>10</b> friends</span>
   </div>
-  <figure class="heroshot" id="heroshot">
-    <img id="heroimg" src="photos/hero.jpg" alt="The pizza floaty on the Russian River, everyone aboard.">
-    <figcaption>The pizza, in its natural habitat.</figcaption>
-  </figure>
+  <div class="herostrip" id="herostrip"></div>
 </header>
 
 <section id="map">
   <h2>The float</h2>
-  <div class="sub">Put in at Steelhead · take out at Sunset</div>
+  <div class="sub">In at Steelhead · out at Sunset · do not miss it</div>
   <figure>
     <div class="mapcard">
       <svg viewBox="0 0 800 300" role="img" aria-label="Map of the Russian River from Steelhead Beach downstream west to Sunset Beach, about four miles.">
@@ -348,7 +346,7 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
           <use href="#pizza" width="26" height="26" x="-13" y="-13">
             <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="14s" repeatCount="indefinite"/>
           </use>
-          <animateMotion dur="26s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+          <animateMotion dur="26s" repeatCount="indefinite">
             <mpath href="#riverline"/>
           </animateMotion>
         </g>
@@ -379,17 +377,17 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
         </g>
       </svg>
     </div>
-    <figcaption><span class="swipe">Swipe the map sideways. </span>The river runs east to west here — Steelhead is upstream, Sunset is where you get out. Miss the take-out and the next one is a long way.</figcaption>
+    <figcaption><span class="swipe">Swipe the map sideways. </span>Water goes east to west. So do you. Miss the take-out and you keep going to the Pacific, which is not on the schedule.</figcaption>
   </figure>
 </section>
 
 <section id="day">
   <h2>The day, to scale</h2>
-  <div class="sub">08:00 to 17:30 · nine and a half hours</div>
+  <div class="sub">Nine and a half hours, mostly horizontal</div>
   <div class="daybar" role="img" aria-label="Proportional bar of the day: one hour driving, one hour at the sandwich shop, one hour at Steelhead, four hours floating, one hour at Sunset, ninety minutes driving home.">
     <div class="seg" style="flex:60"  title="08:00–09:00 Drive north">Drive</div>
     <div class="seg stop" style="flex:60" title="09:00–10:00 Sandwiches">Sandwiches</div>
-    <div class="seg" style="flex:60"  title="10:00–11:00 Shuttle &amp; pump">Shuttle</div>
+    <div class="seg" style="flex:60"  title="10:00–11:00 Shuffle &amp; pump">Shuffle</div>
     <div class="seg float" style="flex:240" title="11:00–15:00 On the river">FLOAT</div>
     <div class="seg stop" style="flex:60" title="15:00–16:00 Deflate &amp; retrieve cars">Pack up</div>
     <div class="seg" style="flex:90"  title="16:00–17:30 Drive home">Drive home</div>
@@ -397,19 +395,19 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
   <div class="daylabels"><span>08:00</span><span>17:30</span></div>
 
   <ol class="timeline">
-    <li><span class="t">08:00</span><span class="tw">Leave SF and Oakland</span></li>
-    <li><span class="t">09:00</span><span class="tw">Mr. Pickles, San Rafael — sandwiches</span></li>
-    <li><span class="t">10:00</span><span class="tw">Arrive Steelhead Beach, start the shuttle</span></li>
+    <li><span class="t">08:00</span><span class="tw">Wheels up, SF and Oakland</span></li>
+    <li><span class="t">09:00</span><span class="tw">Sandwich acquisition at Mr. Pickles</span></li>
+    <li><span class="t">10:00</span><span class="tw">Steelhead Beach. The shuffle begins.</span></li>
     <li class="peak"><span class="t">11:00</span><span class="tw">Get in the river</span></li>
-    <li><span class="t">15:00</span><span class="tw">Arrive Sunset Beach, start deflating</span></li>
-    <li><span class="t">16:00</span><span class="tw">Leave Sunset</span></li>
-    <li><span class="t">17:30</span><span class="tw">Home</span></li>
+    <li><span class="t">15:00</span><span class="tw">Sunset Beach. The great deflation.</span></li>
+    <li><span class="t">16:00</span><span class="tw">Peel out</span></li>
+    <li><span class="t">17:30</span><span class="tw">Home, sunburnt, victorious</span></li>
   </ol>
 </section>
 
 <section id="cars">
   <h2>Who's in what</h2>
-  <div class="sub">Three cars · two of them do the shuttle</div>
+  <div class="sub">Three cars, two with an actual job</div>
   <div class="cars">
 
     <div class="car">
@@ -469,46 +467,47 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
   </div>
 </section>
 
-<section id="shuttle">
-  <h2>The car shuttle</h2>
-  <div class="sub">The only genuinely tricky part of the day</div>
+<section id="shuffle">
+  <h2>The car shuffle</h2>
+  <div class="sub">The one part requiring a functioning brain</div>
 
   <div class="phase">Getting there</div>
   <ol class="steps">
-    <li>Julia, Allison, Eric and Laura leave the city in <b>Eric's car</b>. Allison will start a group chat.</li>
-    <li>Andreina, Corinne, Adam and Arden leave Oakland in <b>Adam's car</b>.</li>
-    <li>Both cars meet at the <b>sandwich shop</b>. There's a Whole Foods and a Trader Joe's five minutes away — split up and do lunch and snacks at the same time.</li>
+    <li>Julia, Allison, Eric and Laura pile into <b>Eric's car</b>. Allison starts the group chat.</li>
+    <li>Andreina, Corinne, Adam and Arden pile into <b>Adam's car</b> in Oakland.</li>
+    <li>Both cars converge on the <b>sandwich shop</b>. Whole Foods and Trader Joe's are five minutes off — divide and conquer, lunch and snacks at once.</li>
   </ol>
 
   <div class="phase">At Steelhead</div>
   <ol class="steps" start="4" style="counter-reset:s 3">
-    <li>Everyone except the drivers <b>unloads at Steelhead</b> with the float gear.</li>
-    <li><b>Bec and Sienna</b> arrive and park their car at one end.</li>
-    <li>All non-float gear goes in <b>Adam's secret compartment</b> 😉</li>
-    <li>Non-drivers stay at Steelhead and <b>start pumping</b> 💪</li>
-    <li>Eric and Adam drive to Sunset and <b>leave Adam's car there</b>.</li>
-    <li>They drive back to Steelhead in Eric's car <b>with Adam's key</b> — in a bag where it won't get wet.</li>
+    <li>Everyone but the drivers <b>unloads at Steelhead</b> with the float gear.</li>
+    <li><b>Bec and Sienna</b> roll up and park at one end.</li>
+    <li>Non-float gear vanishes into <b>Adam's secret compartment</b> 😉</li>
+    <li>Non-drivers stay behind and <b>start pumping</b> 💪</li>
+    <li>Eric and Adam run Adam's car down to Sunset and <b>abandon it there</b>.</li>
+    <li>They come back in Eric's car <b>with Adam's key</b>, in a dry bag. Lose it here and the day is over.</li>
   </ol>
 
-  <div class="phase">On the water</div>
+  <div class="phase">The good part</div>
   <ol class="steps" style="counter-reset:s 9">
     <li>Get in the river.</li>
-    <li>Float for four to five hours.</li>
+    <li>Float. Four hours. Maybe five.</li>
   </ol>
 
   <div class="phase">Getting home</div>
   <ol class="steps" style="counter-reset:s 11">
-    <li>Non-drivers <b>start deflating</b> at Sunset.</li>
-    <li>Eric and Adam drive Adam's car back to Steelhead.</li>
-    <li>They drive <b>both cars</b> back to Sunset.</li>
-    <li>Adam, Arden, Andreina and Corinne head back to Oakland and Los Gatos.</li>
-    <li>Laura, Eric, Allison and Julia head back to SF.</li>
+    <li>Non-drivers begin <b>the great deflation</b>.</li>
+    <li>Eric and Adam fetch Adam's car back to Steelhead.</li>
+    <li>Both cars come back down to Sunset.</li>
+    <li>Adam, Arden, Andreina and Corinne peel off to Oakland and Los Gatos.</li>
+    <li>Laura, Eric, Allison and Julia point it at SF.</li>
   </ol>
 </section>
 
+<div class="pair">
 <section id="gear">
   <h2>Group gear</h2>
-  <div class="sub">One of each, between all of us</div>
+  <div class="sub">One between all of us</div>
   <div class="gear">
     <div class="g"><span class="item">Giant pizza floaty</span><span class="tag got">Allison</span></div>
     <div class="g"><span class="item">Unicorn floaty</span><span class="tag got">Andreina</span></div>
@@ -523,7 +522,7 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
 
 <section id="snacks">
   <h2>Snacks</h2>
-  <div class="sub">Grab whatever appeals at the Whole Foods stop</div>
+  <div class="sub">Grab what calls to you at Whole Foods</div>
   <div class="gear">
     <div class="g"><span class="item">Chips</span><span class="tag need">Open</span></div>
     <div class="g"><span class="item">Granola bars</span><span class="tag need">Open</span></div>
@@ -534,41 +533,35 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
     <div class="g"><span class="item">High Noons</span><span class="tag got">Corinne</span></div>
   </div>
 </section>
+</div>
 
 <section id="pack">
   <h2>Pack this</h2>
-  <div class="sub">Tick as you go — it saves in your browser</div>
+  <div class="sub">Ticks save in your browser</div>
   <div class="list" id="checklist"></div>
   <button class="reset" id="reset" type="button">Clear all</button>
   <p class="hint">Your list is yours alone. Nobody else sees it.</p>
 </section>
 
-<section id="photos">
-  <h2>Photos</h2>
-  <div class="sub">Name them <code>01.jpg</code>, <code>02.jpg</code>… and drop them in <code>photos/</code></div>
-  <div class="gallery" id="gallery"></div>
-  <p class="hint" id="gallery-empty">No photos yet. Drop files into <b>photos/</b> named <b>01.jpg</b>, <b>02.jpg</b>, and so on — they show up here on their own. Use <b>hero.jpg</b> for the big one at the top.</p>
-</section>
-
 <section id="links">
   <h2>Links</h2>
-  <div class="sub">Everything you need to tap</div>
+  <div class="sub">Tap these</div>
   <div class="links">
     <a class="lk" href="https://parks.sonomacounty.ca.gov/learn/blog/park-blogs/tubing-the-russian-river-how-to-plan-a-float-trip" target="_blank" rel="noopener noreferrer">
       <span class="lknum">01</span>
-      <span><span class="lktitle">How to plan a Russian River float</span><span class="lkdesc">Sonoma County Regional Parks</span></span>
+      <span><span class="lktitle">How to plan a Russian River float</span><span class="lkdesc">Sonoma County Parks · how not to embarrass yourself</span></span>
     </a>
     <a class="lk" href="https://goo.gl/maps/oG7un62UynpVHskf8" target="_blank" rel="noopener noreferrer">
       <span class="lknum">02</span>
-      <span><span class="lktitle">Mr. Pickles Sandwich Shop, San Rafael</span><span class="lkdesc">09:00 stop · sandwiches for the river</span></span>
+      <span><span class="lktitle">Mr. Pickles Sandwich Shop, San Rafael</span><span class="lkdesc">09:00 · the most important stop of the day</span></span>
     </a>
     <a class="lk" href="https://maps.google.com/maps?f=d&amp;source=s_d&amp;hl=en&amp;ie=UTF8&amp;z=16&amp;saddr=&amp;daddr=38.49593389,-122.8991681" target="_blank" rel="noopener noreferrer">
       <span class="lknum">03</span>
-      <span><span class="lktitle">Steelhead Beach — put in</span><span class="lkdesc">38.49593, −122.89917</span></span>
+      <span><span class="lktitle">Steelhead Beach — put in</span><span class="lkdesc">Where it starts · 38.49593, −122.89917</span></span>
     </a>
     <a class="lk" href="https://maps.google.com/maps?f=d&amp;source=s_d&amp;hl=en&amp;ie=UTF8&amp;z=16&amp;saddr=&amp;daddr=38.502355,-122.9351161" target="_blank" rel="noopener noreferrer">
       <span class="lknum">04</span>
-      <span><span class="lktitle">Sunset Beach — take out</span><span class="lkdesc">38.50236, −122.93512</span></span>
+      <span><span class="lktitle">Sunset Beach — take out</span><span class="lkdesc">Where it ends · 38.50236, −122.93512</span></span>
     </a>
   </div>
 </section>
@@ -606,7 +599,7 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
 
   /* ---- packing checklist ---- */
   var ITEMS = ["Bathing suit","Hat","Sunglasses","Water shoes","Towel",
-    "Change of clothes","Large water","Sunscreen","Waterproof bag","Snacks","Good vibes"];
+    "Change of clothes","Large water","Sunscreen (more than that)","Waterproof bag","Snacks","Good vibes"];
   var KEY = "river-float-pack";
 
   function load(){
@@ -646,56 +639,32 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
     Array.prototype.forEach.call(host.querySelectorAll("input"), function(b){ b.checked = false; });
   });
 
-  /* ---- hero photo: appears if photos/hero.jpg exists, stays hidden if not ---- */
-  var heroImg = document.getElementById("heroimg");
-  function showHero(){ document.getElementById("heroshot").classList.add("on"); }
-  heroImg.addEventListener("load", showHero);
-  heroImg.addEventListener("error", function(){ heroImg.removeAttribute("src"); });
-  if (heroImg.complete && heroImg.naturalWidth > 0) showHero();
-
   /* ---- photos -----------------------------------------------------------
-     Easiest way: name your files 01.jpg, 02.jpg, 03.jpg ... and drop them in
-     photos/. They appear below automatically. Use hero.jpg for the big one.
-
-     If you want captions, list them here instead and they take over:
-       var PHOTOS = [{ file: "01.jpg", caption: "Putting in at Steelhead" }];
+     Files live in photos/. hero.jpg, 01.jpg, 02.jpg ... up to 08 are picked
+     up automatically and shown across the top, in this order. Anything that
+     is not there is skipped.
      ---------------------------------------------------------------------- */
-  var PHOTOS = [];
+  var strip = document.getElementById("herostrip");
+  var NAMES = ["hero", "01", "02", "03", "04", "05", "06", "07", "08"];
 
-  var gal = document.getElementById("gallery");
-  var galEmpty = document.getElementById("gallery-empty");
-  var shown = 0;
-
-  function add(src, caption){
-    var fig = document.createElement("figure");
-    var img = document.createElement("img");
-    img.src = src;
-    img.alt = caption || "Pizza Day on the Russian River";
-    img.loading = "lazy";
-    img.addEventListener("load", function(){
-      shown++;
-      galEmpty.style.display = "none";
-      gal.appendChild(fig);
-    });
-    img.addEventListener("error", function(){ /* file isn't there; skip it */ });
-    fig.appendChild(img);
-    if (caption) {
-      var cap = document.createElement("figcaption");
-      cap.textContent = caption;
-      fig.appendChild(cap);
-    }
-  }
-
-  if (PHOTOS.length) {
-    PHOTOS.forEach(function(p){ add("photos/" + p.file, p.caption); });
-  } else {
-    // probe photos/01..12 in the usual formats and keep whatever loads
-    for (var n = 1; n <= 12; n++) {
-      var num = (n < 10 ? "0" : "") + n;
-      ["jpg", "jpeg", "png", "webp"].forEach(function(ext){
-        add("photos/" + num + "." + ext, "");
+  NAMES.forEach(function(name){
+    ["jpg", "jpeg", "png", "webp"].forEach(function(ext){
+      // placeholder keeps load order stable regardless of which resolves first
+      var fig = document.createElement("figure");
+      fig.style.display = "none";
+      var img = document.createElement("img");
+      img.alt = "Pizza Day on the Russian River";
+      img.loading = "eager";
+      img.addEventListener("load", function(){
+        fig.style.display = "";
+        strip.classList.add("on");
       });
-    }
-  }
+      img.addEventListener("error", function(){ fig.remove(); });
+      img.src = "photos/" + name + "." + ext;
+      fig.appendChild(img);
+      strip.appendChild(fig);
+    });
+  });
+
 })();
 </script>
