@@ -77,6 +77,15 @@ h1 em{font-style:normal; color:var(--river); display:block}
 }
 .ticker b{color:var(--ink); font-weight:500}
 
+/* ---------- hero photo ---------- */
+.heroshot{display:none; margin:34px 0 0; border-radius:4px; overflow:hidden;
+  border:1px solid var(--line); background:var(--surface2)}
+.heroshot.on{display:block}
+.heroshot img{display:block; width:100%; height:clamp(240px,42vw,420px);
+  object-fit:cover}
+.heroshot figcaption{font-family:var(--mono); font-size:11.5px; color:var(--ink3);
+  padding:10px 13px; letter-spacing:.02em}
+
 /* ---------- sections ---------- */
 section{padding-top:64px}
 h2{
@@ -268,6 +277,10 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
     <span><b>1</b> unicorn floaty</span>
     <span><b>10</b> friends</span>
   </div>
+  <figure class="heroshot" id="heroshot">
+    <img id="heroimg" src="photos/hero.jpg" alt="The pizza floaty on the Russian River, everyone aboard.">
+    <figcaption>Last year. The whole pie, all eight slices.</figcaption>
+  </figure>
 </header>
 
 <section id="open">
@@ -604,6 +617,13 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
     save(state);
     Array.prototype.forEach.call(host.querySelectorAll("input"), function(b){ b.checked = false; });
   });
+
+  /* ---- hero photo: appears if photos/hero.jpg exists, stays hidden if not ---- */
+  var heroImg = document.getElementById("heroimg");
+  function showHero(){ document.getElementById("heroshot").classList.add("on"); }
+  heroImg.addEventListener("load", showHero);
+  heroImg.addEventListener("error", function(){ heroImg.removeAttribute("src"); });
+  if (heroImg.complete && heroImg.naturalWidth > 0) showHero();
 
   /* ---- photos ----------------------------------------------------------
      Put your image files in the photos/ folder next to this file, then add
