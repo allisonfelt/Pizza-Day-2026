@@ -57,7 +57,7 @@
 }
 
 *{box-sizing:border-box}
-:root{--pizza:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NiIgaGVpZ2h0PSI0NiIgdmlld0JveD0iMCAwIDQ4IDQ4Ij48cGF0aCBkPSJNNCA0IEw0MiAyMCBBMjIgMjIgMCAwIDEgMjAgNDIgWiIgZmlsbD0iI0YwQzM0RiIgc3Ryb2tlPSIjN0EzRjE2IiBzdHJva2Utd2lkdGg9IjIuNiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik00MSAyMSBBMjEgMjEgMCAwIDEgMjEgNDEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Q0ODMyRiIgc3Ryb2tlLXdpZHRoPSI3IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48Y2lyY2xlIGN4PSIyNCIgY3k9IjE5IiByPSIzLjQiIGZpbGw9IiNDMDQwMkEiLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjI3IiByPSIyLjkiIGZpbGw9IiNDMDQwMkEiLz48Y2lyY2xlIGN4PSIyOCIgY3k9IjMwIiByPSIyLjkiIGZpbGw9IiNDMDQwMkEiLz48L3N2Zz4=") 4 4, auto}
+:root{--pizza:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NiIgaGVpZ2h0PSI0NiIgdmlld0JveD0iLTUgLTUgNTAgNTAiPjxwYXRoIGQ9Ik0wIDAgTDM4LjYgMTAuNCBBNDAgNDAgMCAwIDEgMTAuNCAzOC42IFoiIGZpbGw9IiNGMEMzNEYiIHN0cm9rZT0iIzdBM0YxNiIgc3Ryb2tlLXdpZHRoPSIyLjYiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMzguNiAxMC40IEE0MCA0MCAwIDAgMSAxMC40IDM4LjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Q0ODMyRiIgc3Ryb2tlLXdpZHRoPSI3IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48Y2lyY2xlIGN4PSIyMSIgY3k9IjkiIHI9IjMuMiIgZmlsbD0iI0MwNDAyQSIvPjxjaXJjbGUgY3g9IjkiIGN5PSIyMSIgcj0iMy4yIiBmaWxsPSIjQzA0MDJBIi8+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMyIgZmlsbD0iI0MwNDAyQSIvPjwvc3ZnPg==") 5 5, auto}
 body{
   cursor:var(--pizza);
   margin:0; background:var(--ground); color:var(--ink);
@@ -72,7 +72,7 @@ h1,h2,h3{text-wrap:balance; margin:0}
 p{margin:0}
 
 /* ---------- ambient pizza ---------- */
-#pizza-sky{position:fixed; inset:-30vmax; z-index:0; pointer-events:none; overflow:hidden}
+#pizza-sky{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden}
 .slice{position:absolute; opacity:.16; will-change:transform; aspect-ratio:1}
 @media (prefers-reduced-motion:reduce){ .slice{animation:none !important} }
 @keyframes drift{
@@ -295,13 +295,12 @@ footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--line);
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="pizza" viewBox="0 0 100 100">
-      <path d="M50 4 L94 82 A50 50 0 0 1 6 82 Z" fill="#E8B44A"/>
-      <path d="M6 82 A50 50 0 0 0 94 82 L86 78 A42 42 0 0 1 14 78 Z" fill="#C97B33"/>
-      <path d="M50 4 L94 82 A50 50 0 0 1 6 82 Z" fill="none" stroke="#C0472F" stroke-width="3" opacity=".55"/>
-      <circle cx="50" cy="42" r="7" fill="#C0472F"/>
-      <circle cx="34" cy="66" r="6" fill="#C0472F"/>
-      <circle cx="66" cy="66" r="6" fill="#C0472F"/>
+    <symbol id="pizza" viewBox="-6 -6 112 112">
+      <path d="M50 5 L92.0 77.7 A84 84 0 0 1 8.0 77.7 Z" fill="#EFC04C" stroke="#B4441F" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M92.0 77.7 A84 84 0 0 1 8.0 77.7" fill="none" stroke="#D4832F" stroke-width="11" stroke-linecap="round"/>
+      <circle cx="50" cy="34" r="7" fill="#C0402A"/>
+      <circle cx="34" cy="58" r="6" fill="#C0402A"/>
+      <circle cx="66" cy="58" r="6" fill="#C0402A"/>
     </symbol>
   </defs>
 </svg>
@@ -473,7 +472,7 @@ footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--line);
 
   <div class="phase">Getting there</div>
   <ol class="steps">
-    <li>Julia, Allison, Eric and Laura pile into <b>Eric's car</b>. Allison starts the group chat.</li>
+    <li>Julia, Allison, Eric and Laura pile into <b>Eric's car</b>. Corinne starts the group chat.</li>
     <li>Andreina, Corinne, Adam and Arden pile into <b>Adam's car</b> in Oakland.</li>
     <li>Both cars converge on the <b>sandwich shop</b>. Whole Foods and Trader Joe's are five minutes off — divide and conquer, lunch and snacks at once.</li>
   </ol>
