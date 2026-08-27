@@ -49,7 +49,7 @@ h1,h2,h3{text-wrap:balance; margin:0}
 p{margin:0}
 
 /* ---------- ambient pizza ---------- */
-#pizza-sky{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden}
+#pizza-sky{position:fixed; inset:-30vmax; z-index:0; pointer-events:none; overflow:hidden}
 .slice{position:absolute; opacity:.16; will-change:transform; aspect-ratio:1}
 @media (prefers-reduced-motion:reduce){ .slice{animation:none !important} }
 @keyframes drift{
@@ -81,8 +81,8 @@ h1 em{font-style:normal; color:var(--river); display:block}
 .heroshot{display:none; margin:34px 0 0; border-radius:4px; overflow:hidden;
   border:1px solid var(--line); background:var(--surface2)}
 .heroshot.on{display:block}
-.heroshot img{display:block; width:100%; height:clamp(240px,42vw,420px);
-  object-fit:cover}
+.heroshot img{display:block; width:100%; height:clamp(280px,46vw,460px);
+  object-fit:cover; object-position:center 42%}
 .heroshot figcaption{font-family:var(--mono); font-size:11.5px; color:var(--ink3);
   padding:10px 13px; letter-spacing:.02em}
 
@@ -214,7 +214,7 @@ ol.steps li b{color:var(--ink); font-weight:600}
 
 /* ---------- photos ---------- */
 .gallery{margin-top:28px; display:grid; gap:10px;
-  grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+  grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
 .gallery figure{margin:0; background:var(--surface); border:1px solid var(--line);
   border-radius:4px; overflow:hidden}
 .gallery img{display:block; width:100%; height:210px; object-fit:cover;
