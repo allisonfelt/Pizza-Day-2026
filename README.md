@@ -33,6 +33,18 @@ Everything lives in `index.html`:
 
 ## Publishing it
 
-The repo is private. To put it on the web for free with GitHub Pages, make it
-public (Settings → General → Danger Zone → Change visibility), then go to
-Settings → Pages and set the source to `main` / `/ (root)`.
+Live at **https://allisonfelt.github.io/Pizza-Day-2026/**
+
+Hosting is GitHub Pages. To turn it on (one time only): Settings -> Pages ->
+Source: "Deploy from a branch" -> `main` / `/ (root)` -> Save. After that every
+push to `main` redeploys automatically within a minute or so.
+
+## Link previews
+
+`share-card.jpg` is the 1200x630 image that shows up when the link is pasted
+into iMessage, Slack, etc. The Open Graph tags at the top of `index.html` point
+at it with absolute URLs, because link scrapers will not resolve relative ones.
+If the repo or its URL ever changes, those tags need updating too.
+
+iMessage caches previews aggressively. If a thread is showing a stale one, add
+a query string (`?v=2`) to force a refetch.
