@@ -279,7 +279,7 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
   </div>
   <figure class="heroshot" id="heroshot">
     <img id="heroimg" src="photos/hero.jpg" alt="The pizza floaty on the Russian River, everyone aboard.">
-    <figcaption>Last year. The whole pie, all eight slices.</figcaption>
+    <figcaption>The pizza, in its natural habitat.</figcaption>
   </figure>
 </header>
 
@@ -517,9 +517,9 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
 
 <section id="photos">
   <h2>Photos</h2>
-  <div class="sub">Drop files in the <code>photos/</code> folder, then add them to the list at the bottom of this file</div>
+  <div class="sub">Name them <code>01.jpg</code>, <code>02.jpg</code>… and drop them in <code>photos/</code></div>
   <div class="gallery" id="gallery"></div>
-  <p class="hint" id="gallery-empty">No photos yet. Put your image files in <b>photos/</b> and list their filenames in the <b>PHOTOS</b> array at the bottom of index.html.</p>
+  <p class="hint" id="gallery-empty">No photos yet. Drop files into <b>photos/</b> named <b>01.jpg</b>, <b>02.jpg</b>, and so on — they show up here on their own. Use <b>hero.jpg</b> for the big one at the top.</p>
 </section>
 
 <section id="links">
@@ -625,33 +625,49 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
   heroImg.addEventListener("error", function(){ heroImg.removeAttribute("src"); });
   if (heroImg.complete && heroImg.naturalWidth > 0) showHero();
 
-  /* ---- photos ----------------------------------------------------------
-     Put your image files in the photos/ folder next to this file, then add
-     them here. Caption is optional.
-       { file: "steelhead.jpg", caption: "Putting in" },
-     -------------------------------------------------------------------- */
-  var PHOTOS = [
-    // { file: "01.jpg", caption: "" },
-  ];
+  /* ---- photos -----------------------------------------------------------
+     Easiest way: name your files 01.jpg, 02.jpg, 03.jpg ... and drop them in
+     photos/. They appear below automatically. Use hero.jpg for the big one.
+
+     If you want captions, list them here instead and they take over:
+       var PHOTOS = [{ file: "01.jpg", caption: "Putting in at Steelhead" }];
+     ---------------------------------------------------------------------- */
+  var PHOTOS = [];
 
   var gal = document.getElementById("gallery");
   var galEmpty = document.getElementById("gallery-empty");
-  if (PHOTOS.length) {
-    galEmpty.style.display = "none";
-    PHOTOS.forEach(function(p){
-      var fig = document.createElement("figure");
-      var img = document.createElement("img");
-      img.src = "photos/" + p.file;
-      img.alt = p.caption || p.file;
-      img.loading = "lazy";
-      fig.appendChild(img);
-      if (p.caption) {
-        var cap = document.createElement("figcaption");
-        cap.textContent = p.caption;
-        fig.appendChild(cap);
-      }
+  var shown = 0;
+
+  function add(src, caption){
+    var fig = document.createElement("figure");
+    var img = document.createElement("img");
+    img.src = src;
+    img.alt = caption || "Pizza Day on the Russian River";
+    img.loading = "lazy";
+    img.addEventListener("load", function(){
+      shown++;
+      galEmpty.style.display = "none";
       gal.appendChild(fig);
     });
+    img.addEventListener("error", function(){ /* file isn't there; skip it */ });
+    fig.appendChild(img);
+    if (caption) {
+      var cap = document.createElement("figcaption");
+      cap.textContent = caption;
+      fig.appendChild(cap);
+    }
+  }
+
+  if (PHOTOS.length) {
+    PHOTOS.forEach(function(p){ add("photos/" + p.file, p.caption); });
+  } else {
+    // probe photos/01..12 in the usual formats and keep whatever loads
+    for (var n = 1; n <= 12; n++) {
+      var num = (n < 10 ? "0" : "") + n;
+      ["jpg", "jpeg", "png", "webp"].forEach(function(ext){
+        add("photos/" + num + "." + ext, "");
+      });
+    }
   }
 })();
 </script>

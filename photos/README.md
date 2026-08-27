@@ -1,14 +1,25 @@
-Put photos for the site in this folder.
+Photos for the site go in this folder.
 
-Then open `index.html`, scroll to the bottom, and add each filename to the
-`PHOTOS` array:
+## The easy way
+
+Name your files and drop them in. Nothing else to edit.
+
+- `hero.jpg` — the big photo at the top of the page
+- `01.jpg`, `02.jpg`, `03.jpg` … up to `12` — the gallery
+
+`.jpg`, `.jpeg`, `.png` and `.webp` all work. iPhone `.heic` files do **not** —
+convert them to JPEG first (on a Mac: open in Preview, File → Export, Format
+JPEG). Resize anything wider than ~2000px so the page stays quick to load.
+
+## If you want captions
+
+Open `index.html`, find the `PHOTOS` array near the bottom, and fill it in.
+Listing anything there switches off the automatic numbering, so include every
+photo you want shown:
 
 ```js
 var PHOTOS = [
-  { file: "steelhead.jpg", caption: "Putting in at Steelhead" },
-  { file: "unicorn.jpg",   caption: "" },
+  { file: "01.jpg", caption: "Putting in at Steelhead" },
+  { file: "02.jpg", caption: "All eight slices, accounted for" },
 ];
 ```
-
-Any format a browser can show works (.jpg, .png, .heic won't — convert those
-to .jpg first). Resize anything over ~2000px wide so the page stays fast.
