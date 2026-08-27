@@ -121,8 +121,9 @@ figure{margin:0}
 .mapcard{
   background:var(--surface); border:1px solid var(--line);
   border-radius:4px; padding:8px; overflow-x:auto;
+  -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain;
 }
-.mapcard svg{display:block; width:100%; min-width:520px; height:auto}
+.mapcard svg{display:block; width:100%; min-width:560px; height:auto}
 figcaption{font-family:var(--mono); font-size:12px; color:var(--ink3);
   margin-top:12px; letter-spacing:.03em}
 
@@ -163,7 +164,7 @@ li.peak .t{color:var(--pop); font-weight:500}
 li.peak .tw{font-family:var(--serif); font-weight:600; font-size:22px}
 
 /* ---------- cars ---------- */
-.cars{display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); margin-top:32px}
+.cars{display:grid; gap:18px; grid-template-columns:repeat(3,1fr); margin-top:32px}
 .car{background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:20px}
 .car svg{width:100%; height:auto; display:block; margin-bottom:14px}
 .car .from{font-family:var(--mono); font-size:11px; letter-spacing:.12em;
@@ -249,13 +250,43 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
   font-family:var(--mono); font-size:12px; color:var(--ink3);
   display:flex; flex-wrap:wrap; gap:8px 20px; justify-content:space-between}
 
-@media (max-width:600px){
+@media (max-width:860px){
+  .cars{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:620px){
   body{font-size:16px}
-  header{padding:48px 0 28px}
-  section{padding-top:52px}
+  .wrap{padding:0 18px 72px}
+  header{padding:44px 0 24px}
+  section{padding-top:48px}
+  h1{font-size:clamp(40px,13vw,62px)}
+  h2{font-size:26px}
+  .dek{font-size:17px}
+
+  .cars{grid-template-columns:1fr; gap:14px}
+  .car svg{max-width:300px; margin-inline:auto}
+
+  /* segment labels do not fit; the timeline underneath carries the detail */
   .seg{font-size:0}
   .seg.float{font-size:10px}
+  .daybar{height:38px}
+
+  .swipe{color:var(--pop)}
+
+  .list{grid-template-columns:1fr}
+  .chk{padding:11px 10px}          /* bigger tap target */
+  .gallery{grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px}
+
+  .g{gap:10px}
+  .lk{gap:12px}
+  footer{gap:6px; flex-direction:column}
 }
+@media (max-width:380px){
+  h1{font-size:38px}
+  .ticker{font-size:12px; gap:5px 12px}
+  .gallery{grid-template-columns:1fr}
+}
+.swipe{display:none}
+@media (max-width:620px){ .swipe{display:inline} }
 </style>
 
 <!-- 10 slices of pizza, floating around -->
@@ -348,7 +379,7 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
         </g>
       </svg>
     </div>
-    <figcaption>The river runs east to west here — Steelhead is upstream, Sunset is where you get out. Miss the take-out and the next one is a long way.</figcaption>
+    <figcaption><span class="swipe">Swipe the map sideways. </span>The river runs east to west here — Steelhead is upstream, Sunset is where you get out. Miss the take-out and the next one is a long way.</figcaption>
   </figure>
 </section>
 
