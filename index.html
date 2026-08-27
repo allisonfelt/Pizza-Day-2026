@@ -50,7 +50,7 @@ p{margin:0}
 
 /* ---------- ambient pizza ---------- */
 #pizza-sky{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden}
-.slice{position:absolute; opacity:.16; will-change:transform}
+.slice{position:absolute; opacity:.16; will-change:transform; aspect-ratio:1}
 @media (prefers-reduced-motion:reduce){ .slice{animation:none !important} }
 @keyframes drift{
   0%  {transform:translate3d(0,0,0) rotate(0deg)}
@@ -439,7 +439,7 @@ footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
     <li>Both cars meet at the <b>sandwich shop</b>. There's a Whole Foods and a Trader Joe's five minutes away — split up and do lunch and snacks at the same time.</li>
   </ol>
 
-  <div class="phase" style="counter-reset:none">At Steelhead</div>
+  <div class="phase">At Steelhead</div>
   <ol class="steps" start="4" style="counter-reset:s 3">
     <li>Everyone except the drivers <b>unloads at Steelhead</b> with the float gear.</li>
     <li><b>Bec and Sienna</b> arrive and park their car at one end.</li>
